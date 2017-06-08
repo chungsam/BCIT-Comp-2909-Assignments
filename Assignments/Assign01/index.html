@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Starting Angular</title>
+    <!--angular-->
+    <script src="https://code.angularjs.org/1.5.8/angular.js"></script>
+    <!--site-->
+    <script src="js/app.js"></script>
+</head>
+<!-- Notice here the ng-app references our 'weatherApp' module -->
+
+<body ng-app='weatherApp'>
+    <!-- Reference the application level controller for the title model. -->
+    <div ng-controller="AppCtrl" ng-model="title">
+        <h1>{{title}}</h1>
+        <h3>Run this in brackets and use the Chrome debugger.</h3>
+
+        <hr>
+        <button type="button" ng-click="sortBy('cityName')">City Name </button>
+        <!-- Our one page app works by switching views here. -->
+        <div ng-repeat="fc in forecast | orderBy:orderByPropName:orderByReverse">
+            Click ->: <label ng-click="showForecast(fc['cityName'])">{{fc['cityName']}}</label><br/>
+        </div>
+        <div ng-show="currentCity">
+            {{ currentCityForecast.cityName }}
+
+            <span>
+            {{ currentCityForecast.displayTempHigh | number: 0 }}
+            {{ currentCityForecast.displayTempLow | number: 0 }}
+            </span> 
+
+          
+            {{ currentCityForecast.text }}
+            <fieldset>
+                Fahrenheit: <input type="radio" ng-click="convertTemp(tempScale)" ng-model="tempScale" value="fahrenheit" />
+                Celsius: <input type="radio" ng-click="convertTemp(tempScale)" ng-model="tempScale" value="celsius" />
+            </fieldset>
+        </div>
+        <br/><br/>
+
+    </div>
+</body>
+
+</html>
