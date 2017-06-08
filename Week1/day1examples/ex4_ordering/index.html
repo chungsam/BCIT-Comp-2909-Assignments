@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+    <title>Check boxes</title>
+    <script src="https://code.angularjs.org/1.5.8/angular.js"></script>
+    <script src="js/controllers.js"></script>
+</head>
+<body ng-app="formSample">
+    <form name="myForm" ng-controller="ExampleController">
+        Value1: <input type="checkbox" ng-model="chk1" ng-change="update()"> <br />
+        Value2: <input type="checkbox" ng-model="chk2"
+                       ng-true-value="'Hello'" ng-false-value="'Good-bye'"> <br />
+        <p>chk1 = <label ng-bind="chk1"></label> </p>
+        <p>chk2 = {{chk2}}</p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <title>Check boxes</title>
+    <script src="https://code.angularjs.org/1.5.8/angular.js"></script>
+    <script>
+        var formSample = angular.module('formSample', []);
+        formSample.controller('ExampleController', ['$scope', function ($scope) {
+            $scope.chk1 = true;
+            $scope.chk2 = 'Hello';
+            $scope.options = [{ "item": "personalized", "checked": true },
+                              { "item": "air miles", "checked": false },
+                              { "item": "fraud protection", "checked": false }];
+            $scope.all = { "item": "all", "checked": false };
+            
+            $scope.update = function() {
+                $scope.options.forEach(function(item) {
+                    item.checked = $scope.all.checked;
+                }, this);
+            }; 
+        }]);
+    </script>
+</head>
+<body ng-app="formSample" ng-controller="ExampleController">
+    <div>
+        <input type="checkbox" ng-model="all.checked" ng-change="update()"/> {{all.item}}
+    </div>
+    <div ng-repeat="option in options">
+        <input type="checkbox" ng-model="option.checked" /> {{option.item}}
+    </div>
+</body>
+</html>

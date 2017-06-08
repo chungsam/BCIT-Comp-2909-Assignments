@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <title></title>
+    <script src="https://code.angularjs.org/1.5.8/angular.js"></script>
+    <script>
+        var myApp = angular.module('myApp', []);
+        myApp.controller('ExampleController', ['$scope', function ($scope) {
+            $scope.city     = 'Vancouver';
+
+            // Execute some JavaScript
+            $scope.update = function (input) {
+                $scope.city = input;   
+                $scope.displayCity = "You submitted " + input;                
+                alert("Updated address to: " + input); 
+            };
+
+            $scope.remove = function () {
+                $scope.city = "";
+                $scope.displayCity = "";
+                alert("Removed address!");
+            }
+        }]);
+    </script>
+</head>
+<body ng-app="myApp" ng-controller="ExampleController">
+    City: <input ng-model="city"><br />
+    <button ng-click="update(city)">Update</button>
+    <p>{{displayCity}}</p>
+    <button ng-click="remove()">Remove</button>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <title></title>
+    <script src="https://code.angularjs.org/1.5.8/angular.js"></script>
+    <script>
+        var myApp = angular.module('myApp', []);
+        myApp.controller('ExampleController', ['$scope', function ($scope) {
+            $scope.colors = ["blue", "red", "green"];
+            $scope.color = "";
+
+            $scope.updateColor = function (input) {
+                $scope.color = input;
+            }
+        }]);
+    </script>
+</head>
+<body ng-app="myApp" ng-controller="ExampleController">
+    <div ng-repeat="col in colors">
+        <input type="radio" ng-model="color" value="col" 
+               name="preference" ng-click="updateColor(col)">{{col}}<br>
+    </div>
+    <p ng-bind="color"></p>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+    <title></title>
+    <script src="https://code.angularjs.org/1.5.8/angular.js"></script>
+    <script>
+        var formSample = angular.module('formSample', []);
+        formSample.controller('ExampleController', ['$scope', function ($scope) {
+            $scope.greeting = "Hello world!";
+            $scope.largerGreeting = "Show any text";
+        }]);
+    </script>
+</head>
+<body ng-app="formSample" ng-controller="ExampleController">
+    <input type="text" ng-model="greeting" /> <br />
+    <p ng-bind="greeting"></p>
+
+    <!-- larger greeting -->
+    <input type="text" ng-model="largerGreeting" /> <br />
+    <h3>{{largerGreeting}}<h3>
+</body>
+</html>
