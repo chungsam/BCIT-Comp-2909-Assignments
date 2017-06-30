@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <title>Starting Angular</title>
+    <script src="https://code.angularjs.org/1.5.8/angular.js"></script>
+
+    <!-- The loading order matters here -->
+    <script src="js/controller.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/service.js"></script>
+</head>
+
+<!-- Notice here that ng-app references our 'cardApp' module -->
+<body ng-app='cardApp'>
+
+<!-- Reference the application level controller for the title model. -->
+<div ng-controller="AppCtrl" ng-model="title">
+
+    <!-- Error message if card data not retrieved-->
+    <h1 ng-hide="!error">Error: No cards were successfully retrieved</h1>
+    <!---->
+
+    <table>
+        <tr ng-repeat="card in cards">
+            <td>{{card.number}}</td>
+            <td>{{card.suit}}</td>
+        </tr>
+    </table>
+    Card Number: <input type="text" ng-model="cardNumber"><br />
+    Card Suit:   <input type="text" ng-model="cardSuit"><br />
+    <input type="button" ng-click="getPlayingCard(cardNumber,cardSuit)" value="Get Ranking">
+    <label ng-show="card.numOrd">Card Ranking: {{card.numOrd}}</label>
+</div>
+</body>
+</html>

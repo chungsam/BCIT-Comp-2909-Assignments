@@ -1,0 +1,51 @@
+* {
+    font-family: 'Patrick Hand SC', cursive;
+}
+
+body {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    margin: 0 auto;
+}
+
+section div {
+    vertical-align: top;
+    display: inline-block;
+}
+
+.container,
+.row {
+    width: 100%;
+}
+
+.col-1 {
+    width: 100%;
+}
+
+.col-2 {
+    width: 48%;
+}
+
+.col-3 {
+    width: 31%;
+}
+
+#sort-icon {
+    margin-left: 40px;
+}
+
+#city-list ul {
+    list-style: none;
+}
+
+#forecast-detail div {
+    display: block;
+    text-align: center;
+}
+
+#forecast-detail h1 {
+    margin-top: 0;
+}

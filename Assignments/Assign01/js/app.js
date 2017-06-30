@@ -30,7 +30,7 @@ weatherApp.controller('AppCtrl', ['$scope', function ($scope) {
     ];
 
     // Define title model.
-    $scope.title = "AngularJS Tutorial";
+    $scope.title = "Travel Destinations";
 
 
     $scope.getAllWeather = function () {
@@ -58,6 +58,31 @@ weatherApp.controller('AppCtrl', ['$scope', function ($scope) {
         // Assign display temperatures.
         $scope.currentCityForecast.displayTempHigh = $scope.currentCityForecast.high;
         $scope.currentCityForecast.displayTempLow = $scope.currentCityForecast.low;
+
+        // Show the right forecast icon.
+        $scope.showForecastIcon();
+    }
+
+    // Pick the right forecast icon based on weather text
+    $scope.forecastIconClass = "";
+
+    $scope.showForecastIcon = function() {
+        switch ($scope.currentCityForecast.text.toLowerCase()) {
+            case 'showers':
+                $scope.forecastIconClass = "fa fa-tint fa-5x";
+                break;
+            case 'clear':
+                $scope.forecastIconClass = "fa fa-sun-o fa-5x";
+                break;
+            case 'partly cloudy':
+                $scope.forecastIconClass = "fa fa-cloud fa-5x";
+                break;
+            default:
+                $scope.forecastIconClass = "";
+                break;
+
+
+        }
     }
 
     // Display in either celsius or fahrenheit. Default to fahrenheit on startup.
@@ -65,50 +90,39 @@ weatherApp.controller('AppCtrl', ['$scope', function ($scope) {
 
     $scope.convertTemp = function (targetTempScale) {
 
-        switch (targetTempScale) {
+        switch (targetTempScale.toLowerCase()) {
             case 'celsius':
                 $scope.currentCityForecast.displayTempHigh = ($scope.currentCityForecast.high - 32) * 5 / 9;
                 $scope.currentCityForecast.displayTempLow = ($scope.currentCityForecast.low - 32) * 5 / 9;
-
                 break;
             case 'fahrenheit':
                 $scope.currentCityForecast.displayTempHigh = $scope.currentCityForecast.high;
                 $scope.currentCityForecast.displayTempLow = $scope.currentCityForecast.low;
-
                 break;
         }
-
-    }
-
-    // TODO: Remove after debugging.
-    $scope.showAlert = function () {
-        console.log($scope.tempScale);
 
     }
 
     // For ordering the displayed cities.
     $scope.orderByPropName = 'cityName';
     $scope.orderByReverse = false;
+    $scope.sortIconClass = "fa fa-sort-alpha-asc fa-lg";
 
     $scope.sortBy = function (orderPropName) {
         $scope.orderByPropName = orderPropName;
         $scope.orderByReverse =
             $scope.orderByPropName === orderPropName ? !$scope.orderByReverse : false;
+        
+        // Dynamic sort icon
+        if ($scope.orderByReverse) {
+            $scope.sortIconClass = "fa fa-sort-alpha-desc fa-lg";
+        } else {
+            $scope.sortIconClass = "fa fa-sort-alpha-asc fa-lg";
+        }
 
         console.log("orderByPropName: " + $scope.orderByPropName);
         console.log("orderByReverse: " + $scope.orderByReverse);
     };
-
-
-    /* TODO:
-    - Shorten variable names in both JS and HTML
-    - Go through entire HTML and clean it up
-    - Go through entire JS and clean it up
-    - Style it so it looks awwwesommmmeee!!
-
-    
-    */
-
 
 
 }]);

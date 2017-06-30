@@ -1,0 +1,58 @@
+.container {
+    width: 920px;
+}
+
+.row {
+    width: 100%;
+}
+
+.row div {
+    display: inline-block;
+    vertical-align: top;
+    padding-bottom: 7px;
+}
+
+.col2 {
+    max-width: 48%;
+}
+
+.col3 {
+    width: 30%;
+}
+
+.col4 {
+    width: 24%;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+#form-title {
+    margin-left: 50px;
+}
+
+#email-body {
+    width: 90%;
+    height: 15rem;
+}
+
+input {
+    width: 90%
+}
+
+label {
+    display: block;
+    width: 100%;
+    text-align: right;
+}
+
+span {
+    display: block;
+    width: 100%;
+    text-align: left;
+}
