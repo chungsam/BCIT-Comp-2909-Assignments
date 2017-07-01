@@ -1,5 +1,5 @@
 export class FoodItem {
-    id: string;
+    id: numer;
     name: string;
     mfg: string;
     pkg: string;

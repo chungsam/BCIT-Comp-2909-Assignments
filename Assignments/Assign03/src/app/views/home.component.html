@@ -1,1 +1,4 @@
-<h1>Hi from Home!</h1>
+<h1>Food Items:</h1>
+<ol *ngFor="let foodItem of FOODITEMS" >
+    <li><a routerLink="/home/detail/{{foodItem.id}}">{{foodItem.id}}</a> {{foodItem.name}}</li> 
+</ol>

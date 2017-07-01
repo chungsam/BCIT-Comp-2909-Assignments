@@ -4,13 +4,14 @@ import { FormsModule }    from '@angular/forms';
 import { AppComponent }   from './app.component';
 import { HomeComponent }   from './home.component';
 import { AboutComponent }   from './about.component';
+import { DetailComponent }   from './detail.component';
 import { PageDefault }    from './app.pagedefault';
 import { routing }        from './app.routing';
 
 @NgModule({
     imports: [BrowserModule, FormsModule, routing],
     declarations: [AppComponent, PageDefault,
-        HomeComponent, AboutComponent],
+        HomeComponent, AboutComponent, DetailComponent],
     bootstrap: [AppComponent],
 })
 export class AppModule { }
